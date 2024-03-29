@@ -1,10 +1,13 @@
-export default fetchUserData = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve({ name: 'John', age:30, email:"john.doe@example.com" });
-        }, 2000);
-        reject('Failed to fetch data');
-    });
-}
+const TaskManager = () => {
+    const tasks = [];
 
-const f = fetchUserData ();
+    const addTask = (taskName, priority = 'Normal') => {
+        const task = { taskName, priority };
+        tasks.push(task);
+        return tasks;
+    };
+
+    return { tasks, addTask };
+};
+
+export default TaskManager;
